@@ -1,0 +1,24 @@
+﻿<Window x:Class="WpfApp7.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:WpfApp7"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="800">
+    <Grid>
+        <TextBox x:Name="NameTextBox" HorizontalAlignment="Center" Margin="0,67,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="55" TextChanged="NameTextBox_TextChanged"/>
+        <TextBox x:Name="PriceTextBox" HorizontalAlignment="Center" Margin="0,162,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="200" Height="55" TextChanged="NameTextBox_TextChanged"/>
+        <Button x:Name="AddProductButton" Click="AddProductButton_Click" Content="Добавить" HorizontalAlignment="Center" Margin="0,264,0,0" VerticalAlignment="Top" Height="48" Width="130" Cursor="Hand"/>
+        <ListBox x:Name="ProductListBox" d:ItemsSource="{d:SampleData ItemCount=5}" SelectionChanged="ProductListBox_SelectionChanged" Margin="56,34,590,34">
+            <ListBox.ItemTemplate>
+                <DataTemplate>
+                    <StackPanel>
+                        <TextBlock Text="{Binding Name}"/>
+                        <TextBlock Text="{Binding Price, StringFormat='Цена: {0} ₽'}"/>
+                    </StackPanel>
+                </DataTemplate>
+            </ListBox.ItemTemplate>
+        </ListBox>
+    </Grid>
+</Window>
